@@ -84,3 +84,19 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+
+.field-validation-error{
+    font-size:14px;
+}
+
+.Poster{
+    min-height:260px;
+    background-position:center;
+    background-size:100%;
+}
+
+.Poster:hover{
+    background-size: 110%;
+    transition:all 0.3s ease-in-out;
+}
