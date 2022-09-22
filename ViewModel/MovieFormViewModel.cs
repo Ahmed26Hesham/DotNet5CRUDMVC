@@ -10,6 +10,9 @@ namespace DotNet5CRUDMVC.ViewModel
     // دومين موديل بيتعامل مع الداتا بيز
     public class MovieFormViewModel
     {
+
+        public int Id { get; set; }
+
         // StringLength => بتستخدم مع الفيو موديل 
         [Required, StringLength(250)]
         public string Title { get; set; }
