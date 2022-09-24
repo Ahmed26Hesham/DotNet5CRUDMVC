@@ -59,15 +59,26 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #1e2328ca;
 }
+
+.card {
+    background-color: #b7b7b7;
+    border: none;
+}
+.img-thumbnail {
+    background-color: #505e6d;
+    border: none;
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
 
 /* Custom Styles */
