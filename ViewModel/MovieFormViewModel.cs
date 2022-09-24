@@ -5,15 +5,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DotNet5CRUDMVC.ViewModel
 {
-    // *************************************************
-    // بيبقا جواه كلاسيس بتتعامل مع الفيوز لا اكثر
-    // دومين موديل بيتعامل مع الداتا بيز
+   
     public class MovieFormViewModel
     {
 
         public int Id { get; set; }
 
-        // StringLength => بتستخدم مع الفيو موديل 
         [Required, StringLength(250)]
         public string Title { get; set; }
 

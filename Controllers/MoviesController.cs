@@ -24,7 +24,6 @@ namespace DotNet5CRUDMVC.Controllers
             this._toastNotification = toastNotification;
         }
 
-        // asyncronous programming  ------------ *******************
         public async Task<IActionResult> Index()
         {
             var movies = await _context.Movies.OrderByDescending(m=>m.Rate).ToListAsync();
@@ -32,27 +31,18 @@ namespace DotNet5CRUDMVC.Controllers
         }
         public async Task<IActionResult> Create()
         {
-            // **********************************************
             var ViewModel = new MovieFormViewModel {
                 Genres = await _context.Genres.OrderBy(m => m.Name).ToListAsync()
         };
             return View("MovieForm",ViewModel);
         }
 
-        /*
-        الanti forgery بتعمل التالي
-        الاول بيكون موجود مع الفورم بتاعتك token السيرفر بعته للبراوزر
-        ولما اليوزر بيعمل post
-        ValidateAnti…
-        وظيفتها انها تتأكد ان الtoken ده موجود ومظبوط
-        وده نوع من انواع الحماية علشان تمنع ان حد يبعتلك ريكوستات من برا الابليكشن
-        */
+       
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(MovieFormViewModel model)
         {
-            //*********************
             if (!ModelState.IsValid)
             {
                 model.Genres = await _context.Genres.OrderBy(m => m.Name).ToListAsync();
@@ -202,12 +192,6 @@ namespace DotNet5CRUDMVC.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
-            /*
-             انا استخدمتها هنا لانها اسهل على اي شخص مبتدأ لكن هي طبعا بتأثر على الperformance لو الداتا كبيرة والافضل انك تستخدم الlazy loading لانه مش بيجيب الداتا الا لما فعلا بتكون محتاجها
-            باختصار ممكن تمشي على القاعدة دي
-استخدم eager loading لو الrelations بتاعتك مش كتيرة وانت متأكد انك محتاج تستخدم الداتا اللي راجعه من الtables التانية
-استخدم الlazy loading في عكس كده
-             */
 
             if (id == null)
                 return BadRequest();
